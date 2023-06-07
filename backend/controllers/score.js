@@ -8,7 +8,8 @@ const pool  = mysql.createPool({
 })
 
 exports.getData = (req,res)=>{
-    pool.query('SELECT name,fcf,cfo,profit_ttm,profit,sales FROM stocks', (error, results) => {
+    const companyName = req.params.companyName
+    pool.query('SELECT name, asof_date, bse_code, nse_symbol, fy_date,q_date, sector, avg_turnover, market_cap, bse_grp, stockscrore, growth,cfo_g, fcf_g, pat_g, sales_g, worth_g, pat_g_ttm, sales_g_ttm, yoy_profit, yoy_sales FROM stocks where name = ?;',[companyName] ,(error, results) => {
         if (error) {
             throw error
         }

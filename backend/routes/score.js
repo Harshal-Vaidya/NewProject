@@ -4,7 +4,7 @@ const {getData,getCompanyByCode,getStockByName,getSevenScores,getColor} = requir
 
 // router.param("companyCode",getCompanyCode)
 
-router.get("/getData", getData);
+router.get("/getData/:companyName", getData);
 router.get("/getCompany/:companyCode",getCompanyByCode);
 router.get("/findStock/:companyName",getStockByName);
 router.get("/getSevenScores/:companyName",getSevenScores);
